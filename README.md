@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![Pixel Lofi Player](https://img.shields.io/badge/status-complete-b886c4?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-3.0-0d0a1a?style=flat-square&logo=flask)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-d4a5e5?style=flat-square&logo=javascript)
 ![License](https://img.shields.io/badge/license-MIT-7a6b9e?style=flat-square)
@@ -65,7 +64,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/ashkanmirgomari/pixel-lofi-player.git
+git clone https://github.com/ashkanmirgomari/tapedeck.git
 
 # Navigate to project
 cd pixel-lofi-player
