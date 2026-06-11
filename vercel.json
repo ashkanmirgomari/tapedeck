@@ -1,7 +1,33 @@
 {
-    "builds": [{ "src": "app.py", "use": "@vercel/python" }],
+    "builds": [
+        {
+            "src": "app.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb"
+            }
+        }
+    ],
     "routes": [
-        { "src": "/static/(.*)", "dest": "/static/$1" },
-        { "src": "/(.*)", "dest": "app.py" }
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/css/(.*)",
+            "dest": "/static/css/$1"
+        },
+        {
+            "src": "/js/(.*)",
+            "dest": "/static/js/$1"
+        },
+        {
+            "src": "/img/(.*)",
+            "dest": "/static/img/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "app.py"
+        }
     ]
 }
