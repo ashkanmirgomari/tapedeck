@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TapeDeck</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>🎧 Pixel Lofi Player</title>
+    <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-        <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-        <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
 </head>
 <body>
     <!-- اسکن‌لاین -->
@@ -19,7 +14,7 @@
     
     <!-- بک‌گراند پیکسلی -->
     <div class="bg-wrapper">
-        <img src="{{ url_for('static', filename='img/pixel-bg.gif') }}" class="bg-image" alt="Background">
+        <img src="/static/img/pixel-bg.gif" class="bg-image" alt="Background">
         <div class="bg-overlay"></div>
     </div>
     
@@ -29,19 +24,19 @@
         <!-- پینتو - چسبیده به واکمن -->
         <div class="pinto-wrapper">
             <div class="pinto-container">
-                <img src="{{ url_for('static', filename='img/pinto.png') }}" alt="Pinto" id="pintoImg">
+                <img src="/static/img/pinto.png" alt="Pinto" id="pintoImg">
             </div>
         </div>
         
         <!-- پلیر با فریم تکسچر -->
         <div class="player-frame-container">
-            <img src="{{ url_for('static', filename='img/player-frame.png') }}" class="frame-img" alt="Frame">
+            <img src="/static/img/player-frame.png" class="frame-img" alt="Frame">
             
             <div class="player-inner">
                 
                 <!-- نوار کاست -->
                 <div class="cassette-container">
-                    <img src="{{ url_for('static', filename='img/cassette.png') }}" 
+                    <img src="/static/img/cassette.png" 
                          class="cassette-img" 
                          id="cassetteImg" 
                          alt="Cassette">
@@ -56,22 +51,11 @@
                 
                 <!-- ویژوالایزر پیکسلی -->
                 <div class="visualizer-row" id="visualizer">
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
-                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+                    <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+                    <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+                    <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+                    <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
                 </div>
                 
                 <!-- پروگرس بار -->
@@ -86,19 +70,19 @@
                 <!-- کنترل‌ها -->
                 <div class="controls-row">
                     <button class="btn-control" id="shuffleBtn" title="Shuffle">
-                        <img src="{{ url_for('static', filename='img/btn-shuffle.png') }}" alt="Shuffle">
+                        <img src="/static/img/btn-shuffle.png" alt="Shuffle">
                     </button>
                     <button class="btn-control" id="prevBtn" title="Previous">
-                        <img src="{{ url_for('static', filename='img/btn-back.png') }}" alt="Previous">
+                        <img src="/static/img/btn-back.png" alt="Previous">
                     </button>
                     <button class="btn-control btn-play" id="playBtn" title="Play/Pause">
-                        <img src="{{ url_for('static', filename='img/btn-play.png') }}" alt="Play" id="playIcon">
+                        <img src="/static/img/btn-play.png" alt="Play" id="playIcon">
                     </button>
                     <button class="btn-control" id="nextBtn" title="Next">
-                        <img src="{{ url_for('static', filename='img/btn-next.png') }}" alt="Next">
+                        <img src="/static/img/btn-next.png" alt="Next">
                     </button>
                     <button class="btn-control" id="repeatBtn" title="Repeat">
-                        <img src="{{ url_for('static', filename='img/btn-reapeat.png') }}" alt="Repeat">
+                        <img src="/static/img/btn-reapeat.png" alt="Repeat">
                     </button>
                 </div>
                 
@@ -131,7 +115,7 @@
     
     <!-- Lo-Fi Girl - فقط PC -->
     <div class="lofi-girl-container">
-        <img src="{{ url_for('static', filename='img/lofi-girl.png') }}" alt="Lo-Fi Girl">
+        <img src="/static/img/lofi-girl.png" alt="Lo-Fi Girl">
     </div>
     
     <!-- کانواس پارتیکل‌های موس -->
@@ -153,8 +137,8 @@
     <div class="notebook-overlay" id="notebookOverlay">
         <div class="notebook-container">
             <div class="notebook-header">
-                <img src="{{ url_for('static', filename='img/notebook.png') }}" class="notebook-icon" alt="Notebook">
-                <span class="notebook-title"> MY NOTES</span>
+                <img src="/static/img/notebook.png" class="notebook-icon" alt="Notebook">
+                <span class="notebook-title">📓 MY NOTES</span>
                 <button class="notebook-close" id="notebookClose">✕</button>
             </div>
             <textarea class="notebook-textarea" id="notebookText" placeholder="Type your thoughts here..."></textarea>
@@ -167,14 +151,14 @@
     
     <!-- دکمه باز کردن Notebook -->
     <button class="notebook-toggle" id="notebookToggle" title="Notes">
-        <img src="{{ url_for('static', filename='img/notebook.png') }}" alt="Notes">
+        <img src="/static/img/notebook.png" alt="Notes">
     </button>
 
     <!-- Error Box -->
     <div class="error-overlay" id="errorOverlay">
         <div class="error-container">
             <div class="error-header">
-                <span class="error-title">ERROR</span>
+                <span class="error-title">⚠ ERROR</span>
                 <button class="error-close" id="errorClose">✕</button>
             </div>
             <div class="error-body">
@@ -192,11 +176,8 @@
         <span class="copyright-heart">❤</span>
         <span class="copyright-text">By Ashkan Mirgomari & DeepSeek</span>
     </div>
-    <!-- Custom Scrollbar -->
-    <div class="custom-scrollbar" id="customScrollbar">
-        <div class="custom-scrollbar-thumb" id="scrollbarThumb"></div>
-    </div>
+
     <audio id="audioPlayer"></audio>
-    <script src="{{ url_for('static', filename='js/player.js') }}"></script>
+    <script src="/static/js/player.js"></script>
 </body>
 </html>
