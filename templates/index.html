@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TapeDeck</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+</head>
+<body>
+    <!-- اسکن‌لاین -->
+    <div class="scanlines"></div>
+    
+    <!-- بک‌گراند پیکسلی -->
+    <div class="bg-wrapper">
+        <img src="{{ url_for('static', filename='img/pixel-bg.gif') }}" class="bg-image" alt="Background">
+        <div class="bg-overlay"></div>
+    </div>
+    
+    <!-- کانتینر اصلی -->
+    <div class="main-container">
+        
+        <!-- پینتو - چسبیده به واکمن -->
+        <div class="pinto-wrapper">
+            <div class="pinto-container">
+                <img src="{{ url_for('static', filename='img/pinto.png') }}" alt="Pinto" id="pintoImg">
+            </div>
+        </div>
+        
+        <!-- پلیر با فریم تکسچر -->
+        <div class="player-frame-container">
+            <img src="{{ url_for('static', filename='img/player-frame.png') }}" class="frame-img" alt="Frame">
+            
+            <div class="player-inner">
+                
+                <!-- نوار کاست -->
+                <div class="cassette-container">
+                    <img src="{{ url_for('static', filename='img/cassette.png') }}" 
+                         class="cassette-img" 
+                         id="cassetteImg" 
+                         alt="Cassette">
+                    <div class="cassette-glow"></div>
+                </div>
+                
+                <!-- اسم آهنگ -->
+                <div class="track-info">
+                    <div class="track-name" id="trackTitle">♪ DROP YOUR TAPE ♪</div>
+                    <div class="track-artist" id="trackArtist">── ✦ ──</div>
+                </div>
+                
+                <!-- ویژوالایزر پیکسلی -->
+                <div class="visualizer-row" id="visualizer">
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                    <div class="viz-bar"></div>
+                </div>
+                
+                <!-- پروگرس بار -->
+                <div class="progress-row">
+                    <span class="time" id="currentTime">00:00</span>
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="time" id="duration">00:00</span>
+                </div>
+                
+                <!-- کنترل‌ها -->
+                <div class="controls-row">
+                    <button class="btn-control" id="shuffleBtn" title="Shuffle">
+                        <img src="{{ url_for('static', filename='img/btn-shuffle.png') }}" alt="Shuffle">
+                    </button>
+                    <button class="btn-control" id="prevBtn" title="Previous">
+                        <img src="{{ url_for('static', filename='img/btn-back.png') }}" alt="Previous">
+                    </button>
+                    <button class="btn-control btn-play" id="playBtn" title="Play/Pause">
+                        <img src="{{ url_for('static', filename='img/btn-play.png') }}" alt="Play" id="playIcon">
+                    </button>
+                    <button class="btn-control" id="nextBtn" title="Next">
+                        <img src="{{ url_for('static', filename='img/btn-next.png') }}" alt="Next">
+                    </button>
+                    <button class="btn-control" id="repeatBtn" title="Repeat">
+                        <img src="{{ url_for('static', filename='img/btn-reapeat.png') }}" alt="Repeat">
+                    </button>
+                </div>
+                
+                <!-- ولوم -->
+                <div class="volume-row">
+                    <span class="vol-label">VOL</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                    <span class="vol-value" id="volValue">70</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- پلی‌لیست -->
+        <div class="playlist-box">
+            <div class="playlist-top">
+                <span class="playlist-label">♫ YOUR TAPES ♫</span>
+                <label for="musicUpload" class="add-btn">＋</label>
+                <input type="file" id="musicUpload" accept="audio/*" multiple hidden>
+            </div>
+            <div class="playlist-scroll" id="playlistItems">
+                <div class="empty-msg">
+                    <p>DROP TAPES HERE</p>
+                    <p class="small">or click +</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Lo-Fi Girl - فقط PC -->
+    <div class="lofi-girl-container">
+        <img src="{{ url_for('static', filename='img/lofi-girl.png') }}" alt="Lo-Fi Girl">
+    </div>
+    
+    <!-- کانواس پارتیکل‌های موس -->
+    <canvas class="pixel-particles" id="particleCanvas"></canvas>
+    
+    <!-- CRT Effects -->
+    <div class="crt-chromatic"></div>
+    <div class="crt-tear" id="crtTear"></div>
+    <div class="crt-flicker" id="crtFlicker"></div>
+    <div class="scanline-bar"></div>
+    
+    <!-- Dust Particles Container -->
+    <div class="dust-container" id="dustContainer"></div>
+    
+    <!-- Night Sky Container -->
+    <div class="night-sky" id="nightSky"></div>
+
+    <!-- Notebook Overlay -->
+    <div class="notebook-overlay" id="notebookOverlay">
+        <div class="notebook-container">
+            <div class="notebook-header">
+                <img src="{{ url_for('static', filename='img/notebook.png') }}" class="notebook-icon" alt="Notebook">
+                <span class="notebook-title"> MY NOTES</span>
+                <button class="notebook-close" id="notebookClose">✕</button>
+            </div>
+            <textarea class="notebook-textarea" id="notebookText" placeholder="Type your thoughts here..."></textarea>
+            <div class="notebook-footer">
+                <span class="notebook-status" id="notebookStatus">✓ Saved</span>
+                <button class="notebook-clear" id="notebookClear">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- دکمه باز کردن Notebook -->
+    <button class="notebook-toggle" id="notebookToggle" title="Notes">
+        <img src="{{ url_for('static', filename='img/notebook.png') }}" alt="Notes">
+    </button>
+
+    <!-- Error Box -->
+    <div class="error-overlay" id="errorOverlay">
+        <div class="error-container">
+            <div class="error-header">
+                <span class="error-title">ERROR</span>
+                <button class="error-close" id="errorClose">✕</button>
+            </div>
+            <div class="error-body">
+                <p class="error-message" id="errorMessage">Something went wrong!</p>
+            </div>
+            <div class="error-footer">
+                <button class="error-ok" id="errorOk">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <span class="copyright-text">Made With</span>
+        <span class="copyright-heart">❤</span>
+        <span class="copyright-text">By Ashkan Mirgomari & DeepSeek</span>
+    </div>
+    <!-- Custom Scrollbar -->
+    <div class="custom-scrollbar" id="customScrollbar">
+        <div class="custom-scrollbar-thumb" id="scrollbarThumb"></div>
+    </div>
+    <audio id="audioPlayer"></audio>
+    <script src="{{ url_for('static', filename='js/player.js') }}"></script>
+</body>
+</html>
